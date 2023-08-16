@@ -1,4 +1,17 @@
-<div class="bg-gray-800 h-full w-full p-8 flex flex-col gap-8 justify-between">
+<button
+  class="fixed top-2 right-2 bg-white shadow-2xl text-gray-800 p-2 rounded-md cursor-pointer hover:bg-gray-100 transition z-50"
+  (click)="onToggleIsOpen()">
+  <lucide-icon name="menu" *ngIf="!isOpen"></lucide-icon>
+  <lucide-icon name="x" *ngIf="isOpen"></lucide-icon>
+</button>
+<div
+  class="fixed inset-0 bg-black opacity-70 transition z-30"
+  aria-hidden="true"
+  *ngIf="isOpen"
+  (click)="onToggleIsOpen()"></div>
+<div
+  class="bg-gray-800 h-full w-full max-w-xs p-8 flex flex-col gap-8 justify-between transition fixed left-0 top-0 inset-y-0 z-40"
+  [ngClass]="[isOpen ? 'translate-x-0' : '-translate-x-full']">
   <button
     class="bg-primary-700 px-2 rounded w-full py-1 transition hover:bg-primary-600">
     Create a new chat

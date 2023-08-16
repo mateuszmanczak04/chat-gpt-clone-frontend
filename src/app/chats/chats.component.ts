@@ -26,4 +26,9 @@ export class ChatsComponent {
       title: 'Chat 6',
     },
   ];
+  isOpen = false;
+
+  onToggleIsOpen() {
+    this.isOpen = !this.isOpen;
+  }
 }

@@ -5,10 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChatsComponent } from './chats/chats.component';
 import { ConversationComponent } from './conversation/conversation.component';
+import { LucideAngularModule, Menu, X } from 'lucide-angular';
 
 @NgModule({
   declarations: [AppComponent, ChatsComponent, ConversationComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    LucideAngularModule.pick({ Menu, X }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
