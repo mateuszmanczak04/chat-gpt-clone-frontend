@@ -1,61 +1,33 @@
 <div class="w-full flex flex-col gap-4 max-w-3xl mx-auto p-8 h-full">
   <div class="flex-1 overflow-y-scroll flex flex-col gap-4 scrollbar-none">
-    <p class="w-full max-w-sm mr-auto bg-gray-600 p-2 rounded">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati libero
-      molestias rem nam rerum id illo tenetur praesentium dignissimos temporibus
-      sequi similique, sed inventore totam labore aliquam quisquam suscipit
-      facilis!
+    <p
+      class="bg-gray-600 p-2 rounded-md leading-7 w-full"
+      *ngIf="!responseText && !isLoading">
+      Type something for an answer
     </p>
-    <p class="w-full max-w-sm ml-auto bg-primary-600 p-2 rounded">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus nisi
-      recusandae saepe officiis nam explicabo vel! A, earum quos dolores illum
-      ipsam facilis ut ipsa sapiente autem! Fuga ipsa quos ratione, consectetur
-      perspiciatis libero placeat vero ab, suscipit natus reiciendis
-      dignissimos. Ut, maiores? Obcaecati voluptatem nostrum ipsam, optio
-      architecto voluptate.
+    <p class="bg-gray-600 p-2 rounded-md leading-7 w-full" *ngIf="isLoading">
+      Waiting for a response...
     </p>
-    <p class="w-full max-w-sm mr-auto bg-gray-600 p-2 rounded">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, sint!
-    </p>
-    <p class="w-full max-w-sm ml-auto bg-primary-600 p-2 rounded">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit nesciunt
-      voluptatibus deleniti commodi atque, voluptatum reiciendis aperiam dolore
-      tenetur aliquam, nostrum, dolorum nisi expedita magnam animi vitae
-      incidunt ea provident. Laborum esse vitae culpa quibusdam voluptas,
-      eveniet deleniti, cumque totam, nihil facilis consequuntur perferendis
-      optio? Laudantium amet sequi quaerat, illo veritatis vitae! Libero, sed
-      est reiciendis esse totam voluptate incidunt, eaque ratione quaerat, dolor
-      veniam accusantium exercitationem temporibus possimus tempora
-      voluptatibus! Eos eum iure dolore eaque, ratione animi vitae, neque nemo
-      labore sed nulla dolores saepe quam hic quisquam nam vero blanditiis unde
-      eveniet, assumenda aut! Sit natus temporibus impedit!
-    </p>
-    <p class="w-full max-w-sm mr-auto bg-gray-600 p-2 rounded">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia
-      aspernatur ducimus animi vitae eum amet. Maiores, eum. Natus, itaque
-      incidunt sint sequi architecto praesentium error inventore maxime est
-      iusto veritatis nobis eum cupiditate aut, quaerat, sapiente magni
-      explicabo temporibus sed vitae doloribus? Beatae reiciendis in accusantium
-      et error cupiditate, nemo, ad dolorum culpa quas blanditiis sed ducimus
-      esse corrupti est.
-    </p>
-    <p class="w-full max-w-sm ml-auto bg-primary-600 p-2 rounded">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
-      mollitia cupiditate alias voluptas iste eaque illo nulla magnam fugit
-      atque, est nostrum cum esse sunt ab temporibus omnis dicta. Est, culpa
-      asperiores. Dicta dolores quas, libero pariatur mollitia blanditiis
-      laborum itaque repellendus labore maxime! Quia corrupti perferendis
-      nesciunt sit vitae.
+    <p
+      class="bg-gray-600 p-2 rounded-md leading-7 w-full"
+      *ngIf="!isLoading && responseText">
+      {{ responseText }}
     </p>
   </div>
-  <div class="flex gap-2 w-full mt-auto">
+  <form
+    class="flex gap-2 w-full mt-auto flex-col sm:flex-row"
+    (ngSubmit)="onSubmit()"
+    [formGroup]="promptForm">
     <input
-      class="bg-gray-600 p-2 flex rounded-md flex-1 outline-none transition focus:bg-gray-500"
+      class="bg-gray-700 border-2 border-gray-600 p-2 flex rounded-md flex-1 outline-none transition focus:bg-gray-600"
       type="text"
-      placeholder="Enter a prompt..." />
+      placeholder="Enter a prompt..."
+      formControlName="promptText" />
     <button
-      class="bg-primary-700 px-4 rounded py-2 transition hover:bg-primary-600">
-      Submit
+      class="bg-primary-700 px-4 rounded py-2 transition hover:bg-primary-600 disabled:bg-gray-600"
+      type="submit"
+      [disabled]="isLoading">
+      Send a prompt
     </button>
-  </div>
+  </form>
 </div>
