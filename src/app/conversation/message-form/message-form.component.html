@@ -1,0 +1,16 @@
+<form
+  class="flex gap-2 w-full mt-auto flex-col sm:flex-row"
+  (ngSubmit)="onSubmit()"
+  [formGroup]="form">
+  <input
+    class="bg-gray-700 border-2 border-gray-600 p-2 flex rounded-md flex-1 outline-none transition focus:bg-gray-600"
+    type="text"
+    placeholder="Enter your question..."
+    formControlName="content" />
+  <button
+    class="bg-primary-700 px-4 rounded py-2 transition hover:bg-primary-600 disabled:bg-gray-600"
+    type="submit"
+    [disabled]="isLoading">
+    Ask a question
+  </button>
+</form>

@@ -1,33 +1,4 @@
-<div class="w-full flex flex-col gap-4 max-w-3xl mx-auto p-8 h-full">
-  <div class="flex-1 overflow-y-scroll flex flex-col gap-4 scrollbar-none">
-    <p
-      class="bg-gray-600 p-2 rounded-md leading-7 w-full"
-      *ngIf="!responseText && !isLoading">
-      Type something for an answer
-    </p>
-    <p class="bg-gray-600 p-2 rounded-md leading-7 w-full" *ngIf="isLoading">
-      Waiting for a response...
-    </p>
-    <p
-      class="bg-gray-600 p-2 rounded-md leading-7 w-full"
-      *ngIf="!isLoading && responseText">
-      {{ responseText }}
-    </p>
-  </div>
-  <form
-    class="flex gap-2 w-full mt-auto flex-col sm:flex-row"
-    (ngSubmit)="onSubmit()"
-    [formGroup]="promptForm">
-    <input
-      class="bg-gray-700 border-2 border-gray-600 p-2 flex rounded-md flex-1 outline-none transition focus:bg-gray-600"
-      type="text"
-      placeholder="Enter a prompt..."
-      formControlName="promptText" />
-    <button
-      class="bg-primary-700 px-4 rounded py-2 transition hover:bg-primary-600 disabled:bg-gray-600"
-      type="submit"
-      [disabled]="isLoading">
-      Send a prompt
-    </button>
-  </form>
+<div class="w-full h-full flex flex-col gap-4 max-w-3xl mx-auto p-8">
+  <app-messages></app-messages>
+  <app-message-form></app-message-form>
 </div>

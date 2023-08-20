@@ -1,0 +1,16 @@
+<p
+  class="bg-gray-600 p-2 rounded-md leading-7 w-full"
+  *ngIf="(!messages || messages.length < 1) && !isLoading">
+  Type something for an answer
+</p>
+<p
+  class="p-2 rounded-md leading-7 w-full max-w-xs"
+  [ngClass]="[
+    message.sender === 'user' ? 'bg-primary-600 ml-auto' : 'bg-gray-600 mr-auto'
+  ]"
+  *ngFor="let message of messages">
+  {{ message.content }}
+</p>
+<p class="text-center p-2 rounded-md leading-7 w-full" *ngIf="isLoading">
+  Waiting for a response...
+</p>
