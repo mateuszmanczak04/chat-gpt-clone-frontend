@@ -9,9 +9,10 @@ import { LucideAngularModule, Menu, X } from 'lucide-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MessagesComponent } from './conversation/messages/messages.component';
 import { MessageFormComponent } from './conversation/message-form/message-form.component';
+import { MessageComponent } from './conversation/messages/message/message.component';
 
 @NgModule({
-  declarations: [AppComponent, ChatsComponent, ConversationComponent, MessagesComponent, MessageFormComponent],
+  declarations: [AppComponent, ChatsComponent, ConversationComponent, MessagesComponent, MessageFormComponent, MessageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
